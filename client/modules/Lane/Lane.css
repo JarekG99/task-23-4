@@ -1,1 +1,9 @@
 /* Lane styles */
+.Lane {
+  min-width: 20vw;
+  min-height: 80vh;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}

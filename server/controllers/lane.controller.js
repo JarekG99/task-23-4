@@ -44,13 +44,16 @@ export function deleteLane(req, res) {
   });
 }
 
-export function changeLaneName(req, res, name) {
+export function changeLaneName(req, res) {
+  const name =req.body.name;
+
   Lane.findOne({ id: req.params.laneId }).exec((err, lane) => {
     if (err) {
       res.status(500).send(err);
     }
 
     lane.name=name;
+    lane.save();
     res.json({ lane });
   });
 }

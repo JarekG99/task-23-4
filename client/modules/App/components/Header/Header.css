@@ -2,20 +2,29 @@
   background: #eee url('../../header-bk.png') center;
   background-size: cover;
   border-bottom: 1px solid #ccc;
+  width: 100%;
+
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.content {
+/* .content {
   width: 100%;
   max-width: 980px;
   margin: auto;
   padding: 64px 16px;
   overflow: auto;
 }
-
+ */
 .site-title {
+
+  display: flex;
   font-weight: 300;
-  font-size: 42px;
-  float: left;
+  font-size: 24px;
+
 }
 
 .site-title a {
@@ -23,29 +32,31 @@
   color: #FFF;
 }
 
-.add-post-button {
-  display: inline-block;
+.add-lane-button {
+
   color: #FFF;
   background: #03A9F4;
   padding: 8px 16px;
   text-decoration: none;
   border-radius: 1000px;
-  float: right;
+
 }
 
 .language-switcher {
   background: rgba(0, 0, 0, 0.1);
+  width: 980px;
 }
 
 .language-switcher ul {
   list-style: none;
-  width: 980px;
+
+
   margin: auto;
   text-align: right;
 }
 
 .language-switcher li {
-  display: inline-block;
+    display: inline-block;
   margin: 10px;
   padding: 5px;
   cursor: pointer;
@@ -60,9 +71,10 @@
   border-bottom: 1px solid #fff;
 }
 
-@media (max-width: 767px){
+/* @media (max-width: 767px){
   .add-post-button{
     float: left;
     margin-top: 16px;
   }
 }
+ */

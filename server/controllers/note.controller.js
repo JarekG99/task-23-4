@@ -33,6 +33,20 @@ export function addNote(req, res) {
   });
 }
 
+export function changeNoteName(req, res) {
+  const task =req.body.task;
+
+  Lane.findOne({ id: req.params.noteId }).exec((err, note) => {
+    if (err) {
+      res.status(500).send(err);
+    }
+
+    note.task=task;
+    note.save();
+    res.json({ note });
+  });
+}
+
 export function deleteNote(req, res) {
   Note.findOne({ id: req.params.noteId }).exec((err, note) => {
     if (err) {
@@ -42,5 +56,19 @@ export function deleteNote(req, res) {
     note.remove(() => {
       res.status(200).end();
     });
+  });
+}
+
+export function editNote(req, res) {
+  const name =req.body.text;
+
+  Lane.findOne({ id: req.params.noteId }).exec((err, note) => {
+    if (err) {
+      res.status(500).send(err);
+    }
+
+    note.task=task;
+    note.save();
+    res.json({ note });
   });
 }

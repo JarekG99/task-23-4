@@ -1,24 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-// import * as laneActions from '../Lane/LaneActions';
+import * as laneActions from '../Lane/LaneActions';
 // import { bindActionCreators } from 'redux';
 import Lanes from '../Lane/Lanes';
-import { createLaneRequest, fetchLanes } from '../Lane/LaneActions';
-import { createNote } from '../Note/NoteActions';
+import { createLaneRequest, deleteLaneRequest, deleteNoteRequest, fetchLanes } from '../Lane/LaneActions';
+import { createNoteRequest } from '../Note/NoteActions';
 
 // Import Style
 import styles from '../Lane/Lane.css';
 
 const Kanban = (props) => (
   <div>
-    <button
-      className={styles.AddLane}
-      onClick={() => props.createLane({
-        name: 'New lane',
-        })}
-      >Add lane</button>
     <Lanes lanes={props.lanes} />
+      <button
+        className={styles.AddLane}
+        onClick={() => props.createLane({
+          name: 'New lane',
+          })}
+        >Add lane</button>
   </div>
 );
 
@@ -34,8 +34,12 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  addNote: createNote,
+
+  addNote: createNoteRequest,
   createLane: createLaneRequest,
+  deleteLane: deleteLaneRequest,
+  deleteNote: deleteNoteRequest,
+
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Kanban);

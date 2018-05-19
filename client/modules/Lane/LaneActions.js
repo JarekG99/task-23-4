@@ -22,14 +22,6 @@ export function fetchLanes() {
   };
 }
 
-export function createLaneRequest(lane) {
-  return (dispatch) => {
-    return callApi('lanes', 'post', lane).then(res => {
-      dispatch(createLane(res));
-    });
-  };
-}
-
 export function createLanes(lanesData) {
   return {
     type: CREATE_LANES,
@@ -47,6 +39,15 @@ export function createLane(lane) {
   };
 }
 
+export function createLaneRequest(lane) {
+  return (dispatch) => {
+    return callApi('lane', 'post', lane).then(res => {
+      dispatch(createLane(res));
+    });
+  };
+}
+
+
 export function updateLane(lane) {
   return {
     type: UPDATE_LANE,
@@ -54,16 +55,40 @@ export function updateLane(lane) {
   };
 }
 
+export function updateLaneRequest(lane) {
+  return (dispatch) => {
+    return callApi('lanes', 'put', lane).then(res => {
+      dispatch(updateLane(res));
+    });
+  };
+}
+
 export function editLane(laneId) {
   return {
     type: EDIT_LANE,
-    laneId
+    laneId,
   }
+}
+
+export function editLaneRequest(lane) {
+  return (dispatch) => {
+    return callApi('lanes', 'put', laneId).then(res => {
+      dispatch(editLane(res));
+    });
+  };
 }
 
 export function deleteLane(laneId) {
   return {
     type: DELETE_LANE,
-    laneId
+    laneId,
   };
 }
+
+export function deleteLaneRequest(laneId) {
+  return (dispatch) => {
+    return callApi('lanes', 'delete', laneId ).then(resp => {
+      dispatch(deleteLane(laneId));
+    });
+  };
+ }

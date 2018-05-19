@@ -1,6 +1,6 @@
 // Import Actions
 import { CREATE_NOTE, UPDATE_NOTE, EDIT_NOTE, DELETE_NOTE, CREATE_NOTES } from './NoteActions';
-
+import omit from 'lodash/omit';
 // Initial State
 const initialState = {};
 
@@ -9,7 +9,7 @@ const notes = (state = initialState, action) => {
     case CREATE_NOTE:
     case UPDATE_NOTE:
       return {...state, [action.note.id]: action.note };
-    
+
     case EDIT_NOTE: {
       const note = { ...state[action.id], editing: true };
       return { ...state, [action.id]: note };

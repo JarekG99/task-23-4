@@ -27,7 +27,7 @@ export function createNoteRequest(note, laneId) {
 export function createNotes(notesData) {
   return {
     type: CREATE_NOTES,
-    lanes: notesData,
+    notes: notesData,
   };
 }
 
@@ -66,7 +66,7 @@ export function changeNoteNameRequest(note, laneId) {
 export function editNote(noteId) {
   return {
     type: EDIT_NOTE,
-    noteId,
+    noteId: noteId,
   }
 }
 

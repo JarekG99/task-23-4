@@ -66,14 +66,14 @@ export function updateLaneRequest(lane) {
 export function editLane(laneId) {
   return {
     type: EDIT_LANE,
-    laneId,
+    laneId: laneId,
   }
 }
 
-export function editLaneRequest(lane) {
+export function editLaneRequest(laneId) {
   return (dispatch) => {
     return callApi('lanes', 'put', laneId).then(res => {
-      dispatch(editLane(res));
+      dispatch(editLane(laneId));
     });
   };
 }
@@ -81,7 +81,7 @@ export function editLaneRequest(lane) {
 export function deleteLane(laneId) {
   return {
     type: DELETE_LANE,
-    laneId,
+    laneId: laneId,
   };
 }
 

@@ -23,8 +23,8 @@ const lanes = (state = initialState, action) => {
      return { ...action.lanes };
 
    case EDIT_LANE: {
-      const newLane = { ...state[action.id], editing: true }
-      return { ...state, [action.id]: newLane };
+      const lane = { ...state[action.id], editing: true }
+      return { ...state, [action.id]: lane };
    }
 
    case CREATE_NOTE: {

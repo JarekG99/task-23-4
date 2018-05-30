@@ -34,20 +34,3 @@ export default (
     />
   </Route>
 );
-//     <IndexRoute
-//       getComponent={(nextState, cb) => {
-//         require.ensure([], require => {
-//           cb(null, require('./modules/Post/pages/PostListPage/PostListPage').default);
-//         });
-//       }}
-//     />
-//     <Route
-//       path="/posts/:slug-:cuid"
-//       getComponent={(nextState, cb) => {
-//         require.ensure([], require => {
-//           cb(null, require('./modules/Post/pages/PostDetailPage/PostDetailPage').default);
-//         });
-//       }}
-//     />
-//   </Route>
-// );

@@ -1,7 +1,7 @@
 /* Lane styles */
 .Lane {
   width: 20vw;
-  min-height: 15vh;
+  height: 30vh;
   margin: 10px;
 
   display: flex;

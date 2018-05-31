@@ -41,7 +41,7 @@ export function updateNote(noteId) {
 
 export function updateNoteRequest(noteId, note) {
   return (dispatch) => {
-    return callApi('notes', 'put', { noteId, note }).then(noteResp => {
+    return callApi('notes/'+noteId, 'put', { noteId, note }).then(noteResp => {
       dispatch(updateNote(noteResp, noteId));
     });
   };
@@ -51,12 +51,13 @@ export function changeNoteName(noteId) {
   return {
     type: UPDATE_NOTE,
     noteId: noteId,
+    laneId: laneId,
   };
 }
 
-export function changeNoteNameRequest(note, laneId) {
+export function changeNoteNameRequest(noteId, laneId) {
   return (dispatch) => {
-    return callApi('notes', 'put', { note, laneId }).then(noteResp => {
+    return callApi('notes/'+noteId, 'put', { note, laneId }).then(noteResp => {
       dispatch(changeNoteName(noteResp, noteId));
     });
   };
@@ -66,13 +67,13 @@ export function changeNoteNameRequest(note, laneId) {
 export function editNote(noteId) {
   return {
     type: EDIT_NOTE,
-    noteId: noteId,
+    id: noteId,
   }
 }
 
 export function editNoteRequest(noteId) {
   return (dispatch) => {
-    return callApi('notes', 'post', noteId ).then(noteResp => {
+    return callApi('notes/'+noteId, 'put', {noteId} ).then(noteResp => {
       dispatch(editNote(noteResp, noteId));
     });
   };
@@ -82,14 +83,14 @@ export function editNoteRequest(noteId) {
 export function deleteNote(noteId, laneId) {
   return {
     type: DELETE_NOTE,
-    noteId,
-    laneId,
+    noteId: noteId,
+    laneId: laneId,
   };
 }
 
 export function deleteNoteRequest(noteId, laneId) {
   return (dispatch) => {
-    return callApi('notes', 'delete', { noteId, laneId }).then(resp => {
+    return callApi('notes/'+noteId, 'delete', { noteId, laneId }).then(resp => {
       dispatch(deleteNote(noteId, laneId));
     });
   };

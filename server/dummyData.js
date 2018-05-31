@@ -37,7 +37,7 @@ export default function () {
     const lane1 = new Lane({ name: 'Admin', notes: 'Hello MERN', slug: 'hello-mern', id: 'cikqgkv4q01ck7453ualdn3hd' });
     const lane2 = new Lane({ name: 'Admin', notes: 'Lorem Ipsum', id: 'cikqgkv4q01ck7453ualdn3hf' });
 
-    Lane.create([post1, post2], (error) => {
+    Lane.create([lane1, lane2], (error) => {
       if (!error) {
         // console.log('ready to go....');
       }

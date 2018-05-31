@@ -10,10 +10,10 @@ const initialState = {};
 const lanes = (state = initialState, action) => {
   switch (action.type) {
     case CREATE_LANE:
-      return {...state, [action.lane.id]: action.lane };
+      return {...state, [action.laneId]: action.lane };
 
     case UPDATE_LANE:
-      return { ...state, [action.lane.id]: action.lane };
+      return { ...state, [action.laneId]: action.lane };
 
     case DELETE_LANE: {
       return omit(state, action.laneId);
@@ -23,8 +23,8 @@ const lanes = (state = initialState, action) => {
      return { ...action.lanes };
 
    case EDIT_LANE: {
-      const lane = { ...state[action.id], editing: true }
-      return { ...state, [action.id]: lane };
+      const lane = { ...state[action.laneId], editing: true }
+      return { ...state, [action.laneId]: lane };
    }
 
    case CREATE_NOTE: {

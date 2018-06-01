@@ -14,11 +14,14 @@
 
 .LaneName {
   width: 18vw;
-  min-height: 2vw;
+  min-height: 2vh;
   margin-top: 3px;
   text-align: center;
   background-color: #fff;
-  border: 1px solid grey;
+  border: 2px solid grey;
+  font-size: 20px;
+  font-weight:  800;
+  text-transform: uppercase;
 }
 
 .LaneAddNote {

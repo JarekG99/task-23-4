@@ -10,10 +10,11 @@ const initialState = {};
 const lanes = (state = initialState, action) => {
   switch (action.type) {
     case CREATE_LANE:
-      return {...state, [action.laneId]: action.lane };
+      return {...state, [action.lane.id]: action.lane };
 
     case UPDATE_LANE:
-      return { ...state, [action.laneId]: action.lane };
+      console.log('update_lane action:', action);
+      return { ...state, [action.lane.id]: action.lane };
 
     case DELETE_LANE: {
       return omit(state, action.laneId);
@@ -23,8 +24,9 @@ const lanes = (state = initialState, action) => {
      return { ...action.lanes };
 
    case EDIT_LANE: {
+      console.log('edit_lane action:', action);
       const lane = { ...state[action.laneId], editing: true }
-      return { ...state, [action.laneId]: lane };
+      return { ...state, [action.LaneId]: lane };
    }
 
    case CREATE_NOTE: {
@@ -35,6 +37,7 @@ const lanes = (state = initialState, action) => {
   }
 
   case DELETE_NOTE: {
+    console.log('delete LANE/Note action:', action);
     const newLane = { ...state[action.laneId] };
         newLane.notes = newLane.notes.filter(noteId => noteId !== action.noteId);
 

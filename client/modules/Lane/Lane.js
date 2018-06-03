@@ -48,27 +48,3 @@ Lane.propTypes = {
 };
 
 export default Lane;
-
-
-// class Lane extends Component {
-//   render() {
-//     return (
-//     );
-//   }
-// }
-//
-// const mapStateToProps = (state) => {
-//   return {};
-// };
-//
-// const mapDispatchToProps = (dispatch) => {
-//   return {};
-// };
-//
-// Lane.propTypes = {
-// };
-//
-// export default connect(
-//   mapStateToProps,
-//   mapDispatchToProps
-// )(Lane);

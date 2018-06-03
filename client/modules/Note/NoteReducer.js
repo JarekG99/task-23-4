@@ -8,14 +8,17 @@ const notes = (state = initialState, action) => {
   switch (action.type) {
     case CREATE_NOTE:
     case UPDATE_NOTE:
-      return {...state, [action.note.id]: action.note };
+      console.log('update_note action:', action);
+      return {...state, [action.noteId]: action.note };
 
     case EDIT_NOTE: {
-      const note = { ...state[action.id], editing: true };
-      return { ...state, [action.id]: note };
+      console.log('edit_note action:', action);
+      const note = { ...state[action.noteId], editing: true };
+      return { ...state, [action.noteId]: note };
     }
 
     case DELETE_NOTE:
+      console.log('delete_note action:', action);
       return omit(state, action.noteId);
 
     case CREATE_NOTES:

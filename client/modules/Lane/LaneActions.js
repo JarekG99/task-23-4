@@ -32,6 +32,7 @@ export function createLanes(lanesData) {
 export function createLane(lane) {
   return {
     type: CREATE_LANE,
+
     lane: {
       notes: [],
       ...lane,
@@ -59,7 +60,7 @@ export function updateLane(laneId, lane) {
 export function updateLaneRequest(lane) {
   return (dispatch) => {
     return callApi(`lanes/${lane.id}`, 'put', lane).then(res => {
-      dispatch(updateLane(res.lane.id, res.lane));
+      dispatch(updateLane(res.laneId, res.lane));
 
     });
   };
@@ -89,7 +90,7 @@ export function deleteLane(laneId) {
 
 export function deleteLaneRequest(laneId) {
   return (dispatch) => {
-    return callApi(`lanes/${laneId}`, 'delete', {}).then(resp => {
+    return callApi(`lanes/${laneId}`, 'delete', {}).then(res => {
       dispatch(deleteLane(laneId));
     });
   };

@@ -10,7 +10,7 @@ const mapStateToProps = (state, ownProps) => {
     laneNotes = laneNotes.filter(note => note);
 
     return {
-      // laneNotes: laneNotes
+
      laneNotes: ownProps.lane.notes.map(noteId => state.notes[noteId])
   };
 };

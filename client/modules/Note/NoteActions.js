@@ -31,10 +31,10 @@ export function createNotes(notesData) {
   };
 }
 
-export function updateNote(noteId, note) {
+export function updateNote(note) {
   return {
     type: UPDATE_NOTE,
-    noteId: noteId,
+    // noteId: noteId,
     note,
   };
 }
@@ -42,26 +42,26 @@ export function updateNote(noteId, note) {
 export function updateNoteRequest(note) {
   return (dispatch) => {
     return callApi('notes/'+note.id, 'put',  note ).then(res => {
-      dispatch(updateNote(res.note.id, res.note));
+      dispatch(updateNote( res.note));
     });
   };
 }
 
-// export function changeNoteName(noteId) {
-//   return {
-//     type: UPDATE_NOTE,
-//     noteId: noteId,
-//     laneId: laneId,
-//   };
-// }
-//
-// export function changeNoteNameRequest(noteId, laneId) {
-//   return (dispatch) => {
-//     return callApi('notes/'+noteId, 'put', { noteId, laneId }).then(noteResp => {
-//       dispatch(changeNoteName(noteResp, noteId));
-//     });
-//   };
-// }
+export function changeNoteName(noteId) {
+  return {
+    type: UPDATE_NOTE,
+    noteId: noteId,
+    laneId: laneId,
+  };
+}
+
+export function changeNoteNameRequest(noteId, laneId) {
+  return (dispatch) => {
+    return callApi('notes/'+noteId, 'put', { noteId, laneId }).then(noteResp => {
+      dispatch(changeNoteName(noteResp, noteId));
+    });
+  };
+}
 
 
 export function editNote(noteId) {
@@ -90,7 +90,7 @@ export function deleteNote(noteId, laneId) {
 
 export function deleteNoteRequest(noteId) {
   return (dispatch) => {
-    return callApi('notes/'+noteId, 'delete', {}).then(res => {
+    return callApi(`notes/${noteId}`, 'delete', {noteId, laneId}).then(res => {
       dispatch(deleteNote(noteId, laneId));
     });
   };

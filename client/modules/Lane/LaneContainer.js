@@ -6,11 +6,10 @@ import { createNoteRequest } from '../Note/NoteActions';
 
 const mapStateToProps = (state, ownProps) => {
 
-    var laneNotes = ownProps.lane.notes.map(function(noteId) { return state.notes[noteId] || false});
-    laneNotes = laneNotes.filter(note => note);
-
+    // var laneNotes = ownProps.lane.notes.map(function(noteId) { return state.notes[noteId] || false});
+    // laneNotes = laneNotes.filter(note => note);
+    //
     return {
-
      laneNotes: ownProps.lane.notes.map(noteId => state.notes[noteId])
   };
 };

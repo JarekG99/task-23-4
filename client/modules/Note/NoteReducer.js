@@ -9,7 +9,7 @@ const notes = (state = initialState, action) => {
     case CREATE_NOTE:
     case UPDATE_NOTE:
       console.log('update_note action:', action);
-      return {...state, [action.noteId]: action.note };
+      return {...state, [action.note.id]: action.note };
 
     case EDIT_NOTE: {
       console.log('edit_note action:', action);

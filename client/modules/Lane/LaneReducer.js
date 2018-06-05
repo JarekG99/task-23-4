@@ -26,7 +26,7 @@ const lanes = (state = initialState, action) => {
    case EDIT_LANE: {
       console.log('edit_lane action:', action);
       const lane = { ...state[action.laneId], editing: true }
-      return { ...state, [action.LaneId]: lane };
+      return { ...state, [action.laneId]: lane };
    }
 
    case CREATE_NOTE: {

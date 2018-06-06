@@ -31,37 +31,37 @@ export function createNotes(notesData) {
   };
 }
 
-export function updateNote(note) {
+export function updateNote(noteId, note) {
   return {
     type: UPDATE_NOTE,
-    // noteId: noteId,
+    noteId: noteId,
     note,
   };
 }
 
-export function updateNoteRequest(note) {
+export function updateNoteRequest(noteId) {
   return (dispatch) => {
-    return callApi('notes/'+note.id, 'put',  note ).then(res => {
-      dispatch(updateNote( res.note));
+    return callApi('notes/'+noteId, 'put', {noteId, note} ).then(res => {
+      dispatch(updateNote( res.noteId, res.note ));
     });
   };
 }
 
-export function changeNoteName(noteId) {
-  return {
-    type: UPDATE_NOTE,
-    noteId: noteId,
-    laneId: laneId,
-  };
-}
-
-export function changeNoteNameRequest(noteId, laneId) {
-  return (dispatch) => {
-    return callApi('notes/'+noteId, 'put', { noteId, laneId }).then(noteResp => {
-      dispatch(changeNoteName(noteResp, noteId));
-    });
-  };
-}
+// export function changeNoteName(noteId) {
+//   return {
+//     type: UPDATE_NOTE,
+//     noteId: noteId,
+//     laneId: laneId,
+//   };
+// }
+//
+// export function changeNoteNameRequest(noteId, laneId) {
+//   return (dispatch) => {
+//     return callApi('notes/'+noteId, 'put', { noteId, laneId }).then(noteResp => {
+//       dispatch(changeNoteName(noteResp, noteId));
+//     });
+//   };
+// }
 
 
 export function editNote(noteId) {

@@ -60,7 +60,7 @@ export function deleteNote(req, res) {
 }
 
 export function editNote(req, res) {
-  const task =req.body.text;
+  const task =req.body.task;
 
   Lane.findOne({ id: req.params.noteId }).exec((err, note) => {
     if (err) {

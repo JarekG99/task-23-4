@@ -49,10 +49,10 @@ export function createLaneRequest(lane) {
 }
 
 
-export function updateLane(laneId, lane) {
+export function updateLane( lane) {
   return {
     type: UPDATE_LANE,
-    laneId: laneId,
+    // laneId: laneId,
     lane,
   };
 }
@@ -60,7 +60,7 @@ export function updateLane(laneId, lane) {
 export function updateLaneRequest(lane) {
   return (dispatch) => {
     return callApi(`lanes/${lane.id}`, 'put', lane).then(res => {
-      dispatch(updateLane(res.laneId, res.lane));
+      dispatch(updateLane(res.lane));
 
     });
   };

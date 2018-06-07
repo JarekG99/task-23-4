@@ -12,13 +12,13 @@ import styles from '../Lane/Lane.css';
 
 const Kanban = (props) => (
   <div>
+    <button
+      className={styles.AddLane}
+      onClick={() => props.createLane({
+        name: 'New lane',
+        })}
+      >Add Lane</button>
     <Lanes lanes={props.lanes} />
-      <button
-        className={styles.AddLane}
-        onClick={() => props.createLane({
-          name: 'New lane',
-          })}
-        >Add lane</button>
   </div>
 );
 

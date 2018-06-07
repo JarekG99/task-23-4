@@ -1,14 +1,15 @@
 /* Note styles */
 .Note {
   width: 18vw;
-  margin-bottom: 3px;
+  margin: 3px;
   min-height: 2vw;
   background-color: #fff;
   border: 1px solid grey;
+  border-radius: 3px;
   flex-flow: row wrap;
-  justify-content: space-between;
-  align-items: center;
-}
+
+  font-size: 18px;
+  }
 
  ul {
   list-style-type: none;

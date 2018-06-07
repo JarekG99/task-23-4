@@ -22,7 +22,7 @@ const Lane = (props) => {
         />
       </div>
         <div className={styles.LaneAddNote}>
-          <button onClick={() => addNote({ task: 'New Note' }, laneId)}>Add Note</button>
+          <button className={styles.btn}onClick={() => addNote({ task: 'New Note' }, laneId)}>Add Note</button>
         </div>
       <div>
         <NotesContainer
@@ -31,7 +31,7 @@ const Lane = (props) => {
         />
       </div>
       <div className={styles.LaneDelete}>
-        <button onClick={() => deleteLane(laneId)}>Remove Lane</button>
+        <button className={styles.btn}onClick={() => deleteLane(laneId)}>Remove Lane</button>
       </div>
   </div>
 

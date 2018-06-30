@@ -1,6 +1,9 @@
 .footer{
+  width: 90%;
+  max-height: 10vh;
+  margin: 0 auto;
   text-align: center;
-  padding: 56px 0;
+  padding: 3px 0;
   background-size: cover;
 }
 

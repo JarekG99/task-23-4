@@ -2,25 +2,24 @@
   background: #eee url('../../header-bk.png') center;
   background-size: cover;
   border-bottom: 1px solid #ccc;
-  width: 100%;
-
-  margin: auto;
+  width: 90%;
+  margin: 0 auto;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-}
+  }
 
-/* .content {
+/*  .content {
   width: 100%;
-  max-width: 980px;
+  max-width: 1200px;
   margin: auto;
   padding: 64px 16px;
   overflow: auto;
-}
+ }
  */
-.site-title {
-
+ .site-title {
+  padding: 10px;
   display: flex;
   font-weight: 300;
   font-size: 24px;
@@ -44,12 +43,13 @@
 
 .language-switcher {
   background: rgba(0, 0, 0, 0.1);
-  width: 980px;
+  width: 300px;
 }
 
 .language-switcher ul {
   list-style: none;
-
+  display: flex;
+  justify-content: flex-end;
 
   margin: auto;
   text-align: right;
